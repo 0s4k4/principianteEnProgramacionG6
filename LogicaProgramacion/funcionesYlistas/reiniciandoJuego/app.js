@@ -32,16 +32,20 @@ function verificarIntento(){
             titulo.innerHTML = 'el numero secreto es menor al del usuario';
             
         }
+        limpiarCaja();
         break;
 
 
        
     }
     if (numeroSecreto == numeroUsuario){
+        document.getElementById('reiniciar').removeAttribute('disabled');
         console.log('los numeros coinciden, felicidades')
          let titulo = document.getElementById("parrafo1");
          titulo.innerHTML = 'el numero secreto es el mismo';
          alert('tuviste ' + numeroIntentos + ' intentos');
+
+         
     }
    
 
@@ -53,6 +57,10 @@ function generarNumeroSecreto(){
      
 
     return  Math.floor(Math.random()*10)+1;
+}
+
+function limpiarCaja(){
+    document.querySelector('#valorUsuario').value = '';
 }
 asinarTexto('h1','juego del numero secreto');
 asinarTexto('p','indica un numero del 1 al 10');
